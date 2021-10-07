@@ -1,0 +1,20 @@
+{
+  "name": "help-with-prison-visits-database",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ministryofjustice/help-with-prison-visits-database.git"
+  },
+  "engines": {
+    "node": "16.x.x"
+  },
+  "scripts": {
+    "migrations": "KNEX_CONFIG=migrations knex migrate:latest --env migrations"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "knex": "^0.95.11",
+    "mssql": "^7.2.1"
+  }
+}

@@ -1,14 +1,14 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('Prisoner', function (table) {
-    table.integer('PrisonerId').unsigned().primary()
+  return knex.schema.createTable('IntSchema.ClaimChild', function (table) {
+    table.integer('ClaimChildId').unsigned().primary()
     table.integer('EligibilityId').unsigned().notNullable().references('Eligibility.EligibilityId')
     table.string('Reference', 10).notNullable().index()
-    table.string('FirstName', 100).notNullable()
-    table.string('LastName', 100).notNullable()
+    table.integer('ClaimId').unsigned().notNullable().references('Claim.ClaimId')
+    table.string('FirstName', 50).notNullable()
+    table.string('LastName', 50).notNullable()
     table.dateTime('DateOfBirth').notNullable()
-    table.string('PrisonNumber', 10).notNullable()
-    table.string('NameOfPrison', 100).notNullable()
-    table.string('NomisCheck', 20)
+    table.string('Relationship', 100).notNullable()
+    table.boolean('IsEnabled')
   })
     .catch(function (error) {
       console.log(error)
@@ -17,7 +17,7 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('Prisoner')
+  return knex.schema.dropTable('IntSchema.ClaimChild')
     .catch(function (error) {
       console.log(error)
       throw error

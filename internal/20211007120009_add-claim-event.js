@@ -1,17 +1,16 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('ClaimDocument', function (table) {
-    table.integer('ClaimDocumentId').unsigned().primary()
+  return knex.schema.createTable('IntSchema.ClaimEvent', function (table) {
+    table.increments('ClaimEventId')
     table.integer('EligibilityId').unsigned().notNullable().references('Eligibility.EligibilityId')
     table.string('Reference', 10).notNullable().index()
     table.integer('ClaimId').unsigned().notNullable().references('Claim.ClaimId')
-    table.integer('ClaimExpenseId').unsigned().references('ClaimExpense.ClaimExpenseId')
-    table.string('DocumentType', 20).notNullable()
-    table.string('DocumentStatus', 20).notNullable()
-    table.string('Filepath', 250)
+    table.integer('ClaimDocumentId').unsigned().references('ClaimDocument.ClaimDocumentId')
+    table.dateTime('DateAdded').notNullable()
+    table.string('Event', 100).notNullable()
+    table.string('AdditionalData', 100)
+    table.string('Note', 2000)
     table.string('Caseworker', 100)
-    table.dateTime('DateSubmitted')
-    table.boolean('IsEnabled')
-    table.string('Status', 20)
+    table.boolean('IsInternal').defaultTo(true)
   })
     .catch(function (error) {
       console.log(error)
@@ -20,7 +19,7 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('ClaimDocument')
+  return knex.schema.dropTable('IntSchema.ClaimEvent')
     .catch(function (error) {
       console.log(error)
       throw error

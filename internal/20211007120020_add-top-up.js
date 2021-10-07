@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('TopUp', function (table) {
+  return knex.schema.createTable('IntSchema.TopUp', function (table) {
     table.integer('TopUpId').unsigned().primary()
     table.integer('ClaimId').unsigned().notNullable().references('Claim.ClaimId')
     table.string('PaymentStatus', 100).notNullable()
@@ -16,5 +16,5 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('TopUp')
+  return knex.schema.dropTable('IntSchema.TopUp')
 }

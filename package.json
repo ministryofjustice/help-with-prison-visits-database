@@ -10,6 +10,7 @@
     "node": "16.x.x"
   },
   "scripts": {
+    "start": "node ./index.js",
     "migrations": "KNEX_CONFIG=migrations knex migrate:latest --env migrations"
   },
   "dependencies": {

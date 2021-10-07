@@ -1,12 +1,12 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('ClaimDeduction', function (table) {
-    table.increments('ClaimDeductionId')
+  return knex.schema.createTable('IntSchema.ClaimBankDetail', function (table) {
+    table.integer('ClaimBankDetailId').unsigned().primary()
     table.integer('EligibilityId').unsigned().notNullable().references('Eligibility.EligibilityId')
     table.string('Reference', 10).notNullable().index()
     table.integer('ClaimId').unsigned().notNullable().references('Claim.ClaimId')
-    table.string('DeductionType', 100).notNullable()
-    table.decimal('Amount').notNullable()
-    table.boolean('IsEnabled')
+    table.string('AccountNumber', 8)
+    table.string('SortCode', 6)
+    table.string('NameOnAccount', 100).notNullable()
   })
     .catch(function (error) {
       console.log(error)
@@ -15,7 +15,7 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('ClaimDeduction')
+  return knex.schema.dropTable('IntSchema.ClaimBankDetail')
     .catch(function (error) {
       console.log(error)
       throw error

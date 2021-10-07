@@ -7,6 +7,8 @@ exports.up = function (knex, Promise) {
     table.string('EmailAddress', 100).notNullable()
     table.string('LastName', 100).notNullable()
     table.dateTime('DateAdded').notNullable()
+    table.integer('NumberOfConsecutiveAutoApprovals').defaultTo(4)
+    table.decimal('CostPerMile').defaultTo(0.13)
   })
     .catch(function (error) {
       console.log(error)

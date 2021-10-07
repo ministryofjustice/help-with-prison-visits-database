@@ -2,16 +2,16 @@ exports.up = function (knex, Promise) {
   return knex.schema.createTable('IntSchema.ClaimDocument', function (table) {
     table.integer('ClaimDocumentId').unsigned().primary()
     table.integer('EligibilityId').unsigned().notNullable().references('Eligibility.EligibilityId')
-    table.string('Reference', 10).notNullable().index()
     table.integer('ClaimId').unsigned().references('Claim.ClaimId')
     table.integer('ClaimExpenseId').unsigned().references('ClaimExpense.ClaimExpenseId')
+    table.string('Reference', 10).notNullable().index()
     table.string('DocumentType', 20).notNullable()
     table.string('DocumentStatus', 20).notNullable()
     table.string('Filepath', 250)
     table.string('Caseworker', 100)
+    table.string('Status', 20)
     table.dateTime('DateSubmitted')
     table.boolean('IsEnabled')
-    table.string('Status', 20)
     table.index(['ClaimId', 'IsEnabled', 'ClaimExpenseId'])
   })
     .catch(function (error) {

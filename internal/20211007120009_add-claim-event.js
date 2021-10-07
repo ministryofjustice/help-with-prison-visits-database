@@ -2,10 +2,10 @@ exports.up = function (knex, Promise) {
   return knex.schema.createTable('IntSchema.ClaimEvent', function (table) {
     table.increments('ClaimEventId')
     table.integer('EligibilityId').unsigned().notNullable().references('Eligibility.EligibilityId')
-    table.string('Reference', 10).notNullable().index()
     table.integer('ClaimId').unsigned().notNullable().references('Claim.ClaimId')
     table.integer('ClaimDocumentId').unsigned().references('ClaimDocument.ClaimDocumentId')
     table.dateTime('DateAdded').notNullable()
+    table.string('Reference', 10).notNullable().index()
     table.string('Event', 100).notNullable()
     table.string('AdditionalData', 100)
     table.string('Note', 2000)

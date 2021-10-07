@@ -13,11 +13,11 @@ exports.up = function (knex, Promise) {
     table.string('Country', 100).notNullable()
     table.string('EmailAddress', 100).notNullable()
     table.string('PhoneNumber', 100)
-    table.dateTime('DateOfBirth').notNullable()
     table.string('Relationship', 100).notNullable()
     table.string('Benefit', 100)
     table.string('DWPBenefitCheckerResult', 100)
     table.string('DWPCheck', 20)
+    table.dateTime('DateOfBirth').notNullable()
     table.dateTime('BenefitExpiryDate')
   })
     .catch(function (error) {

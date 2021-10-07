@@ -3,12 +3,12 @@ exports.up = function (knex, Promise) {
     table.increments('TaskId')
     table.string('Task', 100).notNullable()
     table.string('Reference', 10) // No foreign key as task may remove records.
+    table.string('Status', 20).notNullable()
     table.integer('EligibilityId') // No foreign key as task may remove records.
     table.integer('ClaimId') // No foreign key as task may remove records.
-    table.text('AdditionalData')
     table.dateTime('DateCreated').notNullable()
     table.dateTime('DateProcessed')
-    table.string('Status', 20).notNullable()
+    table.text('AdditionalData')
   })
     .catch(function (error) {
       console.log(error)

@@ -2,11 +2,11 @@ exports.up = function (knex, Promise) {
   return knex.schema.createTable('IntSchema.EligibleChild', function (table) {
     table.integer('EligibleChildId').unsigned().primary()
     table.integer('EligibilityId').unsigned().notNullable().references('Eligibility.EligibilityId')
+    table.dateTime('DateOfBirth').notNullable()
     table.string('Reference', 10).notNullable().index()
     table.string('FirstName', 100).notNullable()
     table.string('LastName', 100).notNullable()
     table.string('ChildRelationship', 100).notNullable()
-    table.dateTime('DateOfBirth').notNullable()
     table.string('ParentFirstName', 100).notNullable()
     table.string('ParentLastName', 100).notNullable()
     table.string('HouseNumberAndStreet', 250).notNullable()

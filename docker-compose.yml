@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    command: /bin/bash ./entrypoint.sh
+    networks:
+      - hmpps
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
+      - SA_PASSWORD=mssqlPassw0rd!
+    volumes:
+      - ./mssql-startup/docker-entrypoint.sh:/entrypoint.sh
+      - ./mssql-startup/docker-db-init.sh:/db-init.sh
+      - ./mssql-startup/mssql-hwpvinternal.sql:/db-init.sql
+networks:
+  hmpps:

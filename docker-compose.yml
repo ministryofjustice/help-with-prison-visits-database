@@ -14,6 +14,6 @@ services:
     volumes:
       - ./mssql-startup/docker-entrypoint.sh:/entrypoint.sh
       - ./mssql-startup/docker-db-init.sh:/db-init.sh
-      - ./mssql-startup/mssql-hwpvinternal.sql:/db-init.sql
+      - ./mssql-startup/mssql-hwpv.sql:/db-init.sql
 networks:
   hmpps:

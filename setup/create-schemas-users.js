@@ -1,5 +1,5 @@
 const createSchemaUsers = (knex) => {
-  knex.schema
+  return knex.schema
 
     // Create Schemas
     .raw('CREATE SCHEMA ExtSchema;')

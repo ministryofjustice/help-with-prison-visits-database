@@ -10,8 +10,9 @@
     "node": "16.x.x"
   },
   "scripts": {
-    "start": "node ./index.js",
-    "migrations": "KNEX_CONFIG=migrations knex migrate:latest --env migrations"
+    "start": "node ./index.js && npm run int_migrations && npm run ext_migrations",
+    "int_migrations": "KNEX_CONFIG=intMigrations knex migrate:latest --env intMigrations --migrations-directory=./internal",
+    "ext_migrations": "KNEX_CONFIG=extMigrations knex migrate:latest --env extMigrations --migrations-directory=./external"
   },
   "dependencies": {
     "dotenv": "^10.0.0",

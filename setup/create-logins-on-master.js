@@ -7,20 +7,20 @@
 // const knex = require('knex')(config)
 
 const createLoginsOnMaster = (knex) => {
-  knex.schema
+  return knex.schema
     .raw('USE [master]')
     .raw('CREATE LOGIN ?? WITH Password=\'' + process.env.HWPV_EXT_WEB_PASSWORD + '\';', process.env.HWPV_EXT_WEB_USERNAME)
     .raw('CREATE LOGIN ?? WITH Password=\'' + process.env.HWPV_EXT_MIGRATION_PASSWORD + '\';', process.env.HWPV_EXT_MIGRATION_USERNAME)
     .raw('CREATE LOGIN ?? WITH Password=\'' + process.env.HWPV_INT_WEB_PASSWORD + '\';', process.env.HWPV_INT_WEB_USERNAME)
     .raw('CREATE LOGIN ?? WITH Password=\'' + process.env.HWPV_INT_MIGRATION_PASSWORD + '\';', process.env.HWPV_INT_MIGRATION_USERNAME)
     .raw('CREATE LOGIN ?? WITH Password=\'' + process.env.HWPV_ASYNC_WORKER_PASSWORD + '\';', process.env.HWPV_ASYNC_WORKER_USERNAME)
-    .then(function () {
-      process.exit(0)
-    })
-    .catch(function (error) {
-      console.log(error)
-      process.exit(1)
-    })
+    // .then(function () {
+    //   process.exit(0)
+    // })
+    // .catch(function (error) {
+    //   console.log(error)
+    //   process.exit(1)
+    // })
 }
 
 module.exports = {

@@ -8,5 +8,5 @@ IF DB_ID('hwpv') IS NOT NULL
 CREATE DATABASE [hwpv];
 GO
 
--- USE [hwpvinternal]
+-- USE [hwpv]
 -- GO

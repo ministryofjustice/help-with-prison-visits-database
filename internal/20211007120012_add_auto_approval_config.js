@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('AutoApprovalConfig', function (table) {
+  return knex.schema.createTable('IntSchema.AutoApprovalConfig', function (table) {
     table.increments('AutoApprovalConfigId')
     table.string('Caseworker', 100)
     table.dateTime('DateCreated')
@@ -19,10 +19,10 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex('AutoApprovalConfig')
+  return knex('IntSchema.AutoApprovalConfig')
     .del()
     .then(function () {
-      return knex.schema.dropTable('AutoApprovalConfig')
+      return knex.schema.dropTable('IntSchema.AutoApprovalConfig')
     })
     .catch(function (error) {
       console.log(error)

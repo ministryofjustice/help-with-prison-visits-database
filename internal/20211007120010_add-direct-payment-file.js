@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('DirectPaymentFile', function (table) {
+  return knex.schema.createTable('IntSchema.DirectPaymentFile', function (table) {
     table.increments('PaymentFileId')
     table.string('FileType', 20).notNullable()
     table.dateTime('DateCreated').notNullable()
@@ -13,7 +13,7 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('DirectPaymentFile')
+  return knex.schema.dropTable('IntSchema.DirectPaymentFile')
     .catch(function (error) {
       console.log(error)
       throw error

@@ -5,11 +5,11 @@ const knex = require('knex')(config)
 
 knex.schema
   // Correct default schema
-  .raw('ALTER USER ?? WITH DEFAULT_SCHEMA = IntSchema;', [process.env.APVS_INT_MIGRATION_USERNAME])
+  .raw('ALTER USER ?? WITH DEFAULT_SCHEMA = IntSchema;', [process.env.HWPV_INT_MIGRATION_USERNAME])
   // Async worker
-  .raw('CREATE USER ??;', [process.env.APVS_ASYNC_WORKER_USERNAME])
-  .raw('ALTER ROLE db_datawriter ADD MEMBER ??;', [process.env.APVS_ASYNC_WORKER_USERNAME])
-  .raw('ALTER ROLE db_datareader ADD MEMBER ??;', [process.env.APVS_ASYNC_WORKER_USERNAME])
+  .raw('CREATE USER ??;', [process.env.HWPV_ASYNC_WORKER_USERNAME])
+  .raw('ALTER ROLE db_datawriter ADD MEMBER ??;', [process.env.HWPV_ASYNC_WORKER_USERNAME])
+  .raw('ALTER ROLE db_datareader ADD MEMBER ??;', [process.env.HWPV_ASYNC_WORKER_USERNAME])
   .then(function () {
     process.exit(0)
   })

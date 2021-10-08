@@ -51,13 +51,6 @@ const dropSchemaUsers = (knex) => {
     // SCHEMAS
     .raw('DROP SCHEMA IF EXISTS ExtSchema;')
     .raw('DROP SCHEMA IF EXISTS IntSchema;')
-    .then(function () {
-      process.exit(0)
-    })
-    .catch(function (error) {
-      console.log(error)
-      process.exit(1)
-    })
 }
 
 module.exports = {

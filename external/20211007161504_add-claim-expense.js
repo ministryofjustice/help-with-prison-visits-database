@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('ClaimExpense', function (table) {
+  return knex.schema.createTable('ExtSchema.ClaimExpense', function (table) {
     table.increments('ClaimExpenseId')
     table.integer('EligibilityId').unsigned().notNullable()
     table.string('Reference', 10).notNullable().index()
@@ -26,7 +26,7 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('ClaimExpense')
+  return knex.schema.dropTable('ExtSchema.ClaimExpense')
     .catch(function (error) {
       console.log(error)
       throw error

@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('Visitor', function (table) {
+  return knex.schema.createTable('ExtSchema.Visitor', function (table) {
     table.increments('VisitorId')
     table.integer('EligibilityId').unsigned().notNullable().index().references('Eligibility.EligibilityId')
     table.string('Reference', 10).notNullable().index().references('Eligibility.Reference')
@@ -16,6 +16,7 @@ exports.up = function (knex, Promise) {
     table.dateTime('DateOfBirth').notNullable()
     table.string('Relationship', 100).notNullable()
     table.string('Benefit', 100)
+    table.string('BenefitOwner', 100)
   })
     .catch(function (error) {
       console.log(error)
@@ -24,7 +25,7 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('Visitor')
+  return knex.schema.dropTable('ExtSchema.Visitor')
     .catch(function (error) {
       console.log(error)
       throw error

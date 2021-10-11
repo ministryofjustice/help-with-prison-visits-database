@@ -6,43 +6,43 @@ These are the helper scripts to setup and clear down the database. The main migr
 
 ## Requires
 
-* [node](https://nodejs.org)
+* [NodeJS 16](https://nodejs.org)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop)
+
+## Environment
+
+Use a `.env` file to setup environment variables, you will use these in your other apps. Ensure that `HWPV_DATABASE` is set to match whatever you are using in `./mssql-startup/mssql-hwpv.sql` 
+
+An example password is used which meets the complexity requirements of SQL Server:
+
+```
+HWPV_DATABASE='hwpv-local'
+HWPV_DATABASE_SERVER='localhost'
+
+HWPV_ASYNC_WORKER_USERNAME='AsyncWorkerUser'
+HWPV_ASYNC_WORKER_PASSWORD='Passw0rd!'
+
+HWPV_EXT_WEB_USERNAME='ExtUser'
+HWPV_EXT_WEB_PASSWORD='Passw0rd!'
+HWPV_EXT_MIGRATION_USERNAME='ExtMigrationsUser'
+HWPV_EXT_MIGRATION_PASSWORD='Passw0rd!'
+
+HWPV_INT_WEB_USERNAME='IntUser'
+HWPV_INT_WEB_PASSWORD='Passw0rd!'
+HWPV_INT_MIGRATION_USERNAME='IntMigrationsUser'
+HWPV_INT_MIGRATION_PASSWORD='Passw0rd!'
+```
+
+## Install the node modules (tested on node 16/npm 7)
+
+```
+npm install
+```
 
 ## Run
 
-Set environmental variables:
+This will tear down the database setup but not remove the database. It will remove schemas, logins, users and tables by checking if they exist first. It will then recreate them all followed by running the external and internal migrations followed by creating the Stored Procedures in the `./seeds` folder.
 
 ```
-export HWPV_MIGRATIONS_USERNAME='USERNAME'
-export HWPV_MIGRATIONS_PASSWORD='PASSWORD'
-export HWPV_DATABASE='DATABASE'
-export HWPV_DATABASE_SERVER='DATABASESERVER'
-
-export HWPV_EXT_WEB_USERNAME='USERNAME'
-export HWPV_EXT_WEB_PASSWORD='PASSWORD'
-
-export HWPV_EXT_MIGRATION_USERNAME='USERNAME'
-export HWPV_EXT_MIGRATION_PASSWORD='PASSWORD'
-
-export HWPV_INT_WEB_USERNAME='USERNAME'
-export HWPV_INT_WEB_PASSWORD='PASSWORD'
-
-export HWPV_INT_MIGRATION_USERNAME='USERNAME'
-export HWPV_INT_MIGRATION_PASSWORD='PASSWORD'
-
-export HWPV_ASYNC_WORKER_USERNAME='USERNAME'
-export HWPV_ASYNC_WORKER_PASSWORD='PASSWORD'
-
-npm install
-
-# ONLY NEEDS TO BE DONE ONCE PER DATABASE SERVER NOT DATABASE INSTANCE
-node create-logins-on-master.js
-
-node create-schemas-users.js
-
-# Clear database
-# node drop-schemas-users.js
-
-# Delete knex migrations lock after failure
-# node delete-migration-lock.js
+npm start
 ```

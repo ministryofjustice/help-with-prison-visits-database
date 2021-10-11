@@ -1,16 +1,18 @@
 require('dotenv').config()
-const config = require('../knexfile').development
-// config.connection.database = 'master'
+const config = require('./knexfile').development
 const knex = require('knex')(config)
-const { createLoginsOnMaster } = require('./setup/create-logins-on-master')
+const { dropLoginsOnMaster, createLoginsOnMaster } = require('./setup/create-logins-on-master')
 const { deleteMigrationLock } = require('./setup/delete-migration-lock')
 const { dropSchemaUsers } = require('./setup/drop-schemas-users')
 const { createSchemaUsers } = require('./setup/create-schemas-users')
 
-createLoginsOnMaster(knex)
+dropLoginsOnMaster(knex)
     .then(() => {
-        return deleteMigrationLock(knex)
+        return createLoginsOnMaster(knex)
     })
+    // .then(() => {
+    //     return deleteMigrationLock(knex)
+    // })
     .then(() => {
         return dropSchemaUsers(knex)
     })

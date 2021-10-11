@@ -1,5 +1,5 @@
 const dropSchemaUsers = (knex) => {
-  knex.schema
+  return knex.schema
     // USERS
     .raw('DROP USER IF EXISTS ??;', [process.env.HWPV_EXT_WEB_USERNAME])
     .raw('DROP USER IF EXISTS ??;', [process.env.HWPV_EXT_MIGRATION_USERNAME])

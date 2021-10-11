@@ -18,15 +18,15 @@ module.exports = {
       max: 10
     },
     acquireConnectionTimeout: 500000
-    , debug: true // Uncomment to see knex generated SQL
+    // , debug: true // Uncomment to see knex generated SQL
   },
 
   intMigrations: {
     client: 'mssql',
     connection: {
       host: process.env.HWPV_DATABASE_SERVER,
-      user: process.env.HWPV_INT_WEB_USERNAME,
-      password: process.env.HWPV_INT_WEB_PASSWORD,
+      user: process.env.HWPV_INT_MIGRATION_USERNAME,
+      password: process.env.HWPV_INT_MIGRATION_PASSWORD,
       database: process.env.HWPV_DATABASE,
       options: {
         encrypt: false,
@@ -37,15 +37,15 @@ module.exports = {
       tableName: 'knex_int_migrations',
       directory: './internal'
     }
-    , debug: true // Uncomment to see knex generated SQL
+    // , debug: true // Uncomment to see knex generated SQL
   },
 
   extMigrations: {
     client: 'mssql',
     connection: {
       host: process.env.HWPV_DATABASE_SERVER,
-      user: process.env.HWPV_EXT_WEB_USERNAME,
-      password: process.env.HWPV_EXT_WEB_PASSWORD,
+      user: process.env.HWPV_EXT_MIGRATION_USERNAME,
+      password: process.env.HWPV_EXT_MIGRATION_PASSWORD,
       database: process.env.HWPV_DATABASE,
       options: {
         encrypt: false,

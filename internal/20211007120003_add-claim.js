@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('IntSchema.Claim', function (table) {
+  return knex.schema.createTable('Claim', function (table) {
     table.integer('ClaimId').unsigned().primary().unique()
     table.integer('EligibilityId').unsigned().notNullable() // NO FOREIGN KEY FOR REPEAT CLAIMS WHEN NO ELIGIBILITY IN EXTSCHEMA
     table.integer('RejectionReasonId').unsigned()
@@ -39,7 +39,7 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('IntSchema.Claim')
+  return knex.schema.dropTable('Claim')
     .catch(function (error) {
       console.log(error)
       throw error

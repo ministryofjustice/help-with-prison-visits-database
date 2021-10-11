@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('IntSchema.ClaimRejectionReason', function (table) {
+  return knex.schema.createTable('ClaimRejectionReason', function (table) {
     table.integer('ClaimRejectionReasonId').unsigned().primary()
     table.string('RejectionReason', 1000).notNullable()
     table.boolean('IsEnabled')
@@ -11,5 +11,5 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('IntSchema.ClaimRejectionReason')
+  return knex.schema.dropTable('ClaimRejectionReason')
 }

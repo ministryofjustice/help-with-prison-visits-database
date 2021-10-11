@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('IntSchema.Task', function (table) {
+  return knex.schema.createTable('Task', function (table) {
     table.increments('TaskId')
     table.string('Task', 100).notNullable()
     table.string('Reference', 10) // No foreign key as task may remove records.
@@ -17,7 +17,7 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('IntSchema.Task')
+  return knex.schema.dropTable('Task')
     .catch(function (error) {
       console.log(error)
       throw error

@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('ExtSchema.EligibleChild', function (table) {
+  return knex.schema.createTable('EligibleChild', function (table) {
     table.integer('EligibleChildId').unsigned().primary()
     table.integer('EligibilityId').unsigned().notNullable().references('Eligibility.EligibilityId')
     table.dateTime('DateOfBirth').notNullable()
@@ -22,5 +22,5 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex.schema.dropTable('ExtSchema.EligibleChild')
+  return knex.schema.dropTable('EligibleChild')
 }

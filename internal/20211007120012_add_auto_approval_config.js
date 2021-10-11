@@ -1,5 +1,5 @@
 exports.up = function (knex, Promise) {
-  return knex.schema.createTable('IntSchema.AutoApprovalConfig', function (table) {
+  return knex.schema.createTable('AutoApprovalConfig', function (table) {
     table.increments('AutoApprovalConfigId')
     table.integer('MaxDaysAfterAPVUVisit')
     table.integer('MaxNumberOfClaimsPerYear')
@@ -19,10 +19,10 @@ exports.up = function (knex, Promise) {
 }
 
 exports.down = function (knex, Promise) {
-  return knex('IntSchema.AutoApprovalConfig')
+  return knex('AutoApprovalConfig')
     .del()
     .then(function () {
-      return knex.schema.dropTable('IntSchema.AutoApprovalConfig')
+      return knex.schema.dropTable('AutoApprovalConfig')
     })
     .catch(function (error) {
       console.log(error)

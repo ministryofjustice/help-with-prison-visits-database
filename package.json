@@ -13,7 +13,8 @@
     "start": "node ./index.js && npm run int_migrations && npm run ext_migrations",
     "startNoUsers": "node ./indexNoUsers.js && npm run int_migrations && npm run ext_migrations",
     "int_migrations": "KNEX_CONFIG=intMigrations knex migrate:latest --env intMigrations",
-    "ext_migrations": "KNEX_CONFIG=extMigrations knex migrate:latest --env extMigrations"
+    "ext_migrations": "KNEX_CONFIG=extMigrations knex migrate:latest --env extMigrations",
+    "seed": "KNEX_CONFIG=intMigrations knex seed:run --env intMigrations"
   },
   "dependencies": {
     "dotenv": "^10.0.0",

@@ -40,7 +40,7 @@ exports.seed = function (knex, Promise) {
             )
           `
         )
-        .raw('GRANT SELECT ON getClaimEscortByIdOrLastApproved TO ??;', [process.env.HWPV_INT_WEB_USERNAME])
+        .raw('GRANT SELECT ON getClaimEscortByIdOrLastApproved TO ??;', [process.env.HWPV_EXT_WEB_USERNAME])
     })
     .catch(function (error) {
       console.log(error)

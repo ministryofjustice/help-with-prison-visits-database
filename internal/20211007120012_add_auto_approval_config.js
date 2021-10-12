@@ -11,6 +11,8 @@ exports.up = function (knex, Promise) {
     table.decimal('MaxClaimTotal')
     table.boolean('AutoApprovalEnabled')
     table.boolean('IsEnabled')
+    table.integer('NumberOfConsecutiveAutoApprovals')
+    table.decimal('CostPerMile')
   })
     .catch(function (error) {
       console.log(error)

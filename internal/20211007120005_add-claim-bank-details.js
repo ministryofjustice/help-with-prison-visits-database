@@ -1,6 +1,6 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('ClaimBankDetail', function (table) {
-    table.integer('ClaimBankDetailId').unsigned().primary()
+    table.increments('ClaimBankDetailId')
     table.integer('EligibilityId').unsigned().notNullable().references('Eligibility.EligibilityId')
     table.integer('ClaimId').unsigned().notNullable().references('Claim.ClaimId')
     table.string('Reference', 10).notNullable().index()

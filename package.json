@@ -10,8 +10,8 @@
     "node": "16.x.x"
   },
   "scripts": {
-    "start": "node ./index.js && npm run int_migrations && npm run ext_migrations",
-    "startNoUsers": "node ./indexNoUsers.js && npm run int_migrations && npm run ext_migrations",
+    "start": "node ./index.js && npm run int_migrations && npm run ext_migrations && npm run seed",
+    "startNoUsers": "node ./indexNoUsers.js && npm run int_migrations && npm run ext_migrations && npm run seed",
     "int_migrations": "KNEX_CONFIG=intMigrations knex migrate:latest --env intMigrations",
     "ext_migrations": "KNEX_CONFIG=extMigrations knex migrate:latest --env extMigrations",
     "seed": "KNEX_CONFIG=intMigrations knex seed:run --env intMigrations"

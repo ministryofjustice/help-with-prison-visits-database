@@ -33,6 +33,12 @@ HWPV_INT_MIGRATION_USERNAME='IntMigrationsUser'
 HWPV_INT_MIGRATION_PASSWORD='Passw0rd!'
 ```
 
+## Create MSSQL instance with Docker Compose
+
+```
+docker-compose up
+```
+
 ## Install the node modules (tested on node 16/npm 7)
 
 ```

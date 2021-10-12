@@ -19,6 +19,7 @@ exports.up = function (knex, Promise) {
     table.string('DWPCheck', 20)
     table.dateTime('DateOfBirth').notNullable()
     table.dateTime('BenefitExpiryDate')
+    table.string('BenefitOwner', 100)
   })
     .catch(function (error) {
       console.log(error)

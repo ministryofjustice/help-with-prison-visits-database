@@ -8,15 +8,15 @@
 const dropLoginsOnMaster = (knex) => {
   return knex.schema
     // .raw('USE [master];')
-    .raw(`IF EXISTS (SELECT name FROM hwpv.sys.server_principals WHERE name = '${process.env.HWPV_EXT_WEB_USERNAME}')
+    .raw(`IF EXISTS (SELECT name FROM [${process.env.HWPV_DATABASE}].sys.server_principals WHERE name = '${process.env.HWPV_EXT_WEB_USERNAME}')
       DROP LOGIN [${process.env.HWPV_EXT_WEB_USERNAME}];`)
-    .raw(`IF EXISTS (SELECT name FROM hwpv.sys.server_principals WHERE name = '${process.env.HWPV_EXT_MIGRATION_USERNAME}')
+    .raw(`IF EXISTS (SELECT name FROM [${process.env.HWPV_DATABASE}].sys.server_principals WHERE name = '${process.env.HWPV_EXT_MIGRATION_USERNAME}')
       DROP LOGIN [${process.env.HWPV_EXT_MIGRATION_USERNAME}];`)
-    .raw(`IF EXISTS (SELECT name FROM hwpv.sys.server_principals WHERE name = '${process.env.HWPV_INT_WEB_USERNAME}')
+    .raw(`IF EXISTS (SELECT name FROM [${process.env.HWPV_DATABASE}].sys.server_principals WHERE name = '${process.env.HWPV_INT_WEB_USERNAME}')
       DROP LOGIN [${process.env.HWPV_INT_WEB_USERNAME}];`)
-    .raw(`IF EXISTS (SELECT name FROM hwpv.sys.server_principals WHERE name = '${process.env.HWPV_INT_MIGRATION_USERNAME}')
+    .raw(`IF EXISTS (SELECT name FROM [${process.env.HWPV_DATABASE}].sys.server_principals WHERE name = '${process.env.HWPV_INT_MIGRATION_USERNAME}')
       DROP LOGIN [${process.env.HWPV_INT_MIGRATION_USERNAME}];`)
-    .raw(`IF EXISTS (SELECT name FROM hwpv.sys.server_principals WHERE name = '${process.env.HWPV_ASYNC_WORKER_USERNAME}')
+    .raw(`IF EXISTS (SELECT name FROM [${process.env.HWPV_DATABASE}].sys.server_principals WHERE name = '${process.env.HWPV_ASYNC_WORKER_USERNAME}')
       DROP LOGIN [${process.env.HWPV_ASYNC_WORKER_USERNAME}];`)
 }
 

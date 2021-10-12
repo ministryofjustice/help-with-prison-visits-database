@@ -7,6 +7,7 @@ exports.up = function (knex, Promise) {
     table.string('AccountNumber', 8)
     table.string('SortCode', 6)
     table.string('NameOnAccount', 100).notNullable()
+    table.string('RollNumber', 30)
   })
     .catch(function (error) {
       console.log(error)

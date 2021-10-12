@@ -5,6 +5,7 @@ exports.up = function (knex, Promise) {
     table.integer('RejectionReasonId').unsigned()
     table.boolean('IsAdvanceClaim')
     table.boolean('IsOverpaid')
+    table.boolean('ReminderSent')
     table.string('Reference', 10).notNullable().index() // NO FOREIGN KEY FOR REPEAT CLAIMS WHEN NO ELIGIBILITY IN EXTSCHEMA
     table.string('VisitConfirmationCheck', 20)
     table.string('AssistedDigitalCaseworker', 100)
@@ -29,6 +30,7 @@ exports.up = function (knex, Promise) {
     table.dateTime('PaymentDate')
     table.dateTime('DateApproved')
     table.dateTime('AssignmentExpiry')
+    table.dateTime('DateReminderSent')
     table.timestamp('LastUpdated').defaultTo(knex.fn.now())
     table.index(['EligibilityId', 'ClaimId'])
   })

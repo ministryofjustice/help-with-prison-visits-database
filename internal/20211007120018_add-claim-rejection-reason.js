@@ -1,6 +1,6 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('ClaimRejectionReason', function (table) {
-    table.integer('ClaimRejectionReasonId').unsigned().primary()
+    table.increments('ClaimRejectionReasonId')
     table.string('RejectionReason', 1000).notNullable()
     table.boolean('IsEnabled')
   })

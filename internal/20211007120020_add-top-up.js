@@ -6,7 +6,7 @@ exports.up = function (knex, Promise) {
     table.string('CaseWorker', 100).notNullable()
     table.string('Reason', 2000).notNullable()
     table.decimal('TopUpAmount').notNullable()
-    table.dateTime('DateAdded').notNullable()
+    table.dateTime('DateAdded')
     table.dateTime('PaymentDate')
   })
     .catch(function (error) {

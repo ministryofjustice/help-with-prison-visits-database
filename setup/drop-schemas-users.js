@@ -55,6 +55,13 @@ const dropSchemaUsers = (knex) => {
     .raw('DROP FUNCTION IF EXISTS IntSchema.getClaimDocumentsHistoricClaim;')
     .raw('DROP FUNCTION IF EXISTS IntSchema.getClaimEvents')
     .raw('DROP FUNCTION IF EXISTS IntSchema.getReferencesForDuplicateCheck')
+    .raw('DROP FUNCTION IF EXISTS IntSchema.checkForDisabledReference')
+    .raw('DROP FUNCTION IF EXISTS IntSchema.getEligibleChildren')
+    .raw('DROP FUNCTION IF EXISTS IntSchema.getHistoricClaimIds')
+    .raw('DROP FUNCTION IF EXISTS IntSchema.getHistoricClaimsByReference')
+    .raw('DROP FUNCTION IF EXISTS IntSchema.getIdsForVisitorPrisonerCheck')
+    .raw('DROP FUNCTION IF EXISTS IntSchema.getLastClaimForReference')
+    .raw('DROP FUNCTION IF EXISTS IntSchema.getPrisonerReleaseDate')
     // SCHEMAS
     .raw('DROP SCHEMA IF EXISTS ExtSchema;')
     .raw('DROP SCHEMA IF EXISTS IntSchema;')

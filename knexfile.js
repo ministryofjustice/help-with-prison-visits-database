@@ -56,6 +56,6 @@ module.exports = {
       tableName: 'knex_ext_migrations',
       directory: './external'
     }
-    , debug: true // Uncomment to see knex generated SQL
+    // , debug: true // Uncomment to see knex generated SQL
   }
 }

@@ -18,7 +18,7 @@
     "seed": "KNEX_CONFIG=intMigrations knex seed:run --env intMigrations"
   },
   "dependencies": {
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.0",
     "knex": "^0.95.15",
     "mssql": "^7.3.0"
   }

@@ -7,7 +7,7 @@
     "url": "https://github.com/ministryofjustice/help-with-prison-visits-database.git"
   },
   "engines": {
-    "node": "16.x.x",
+    "node": "18",
     "npm": "8"
   },
   "scripts": {

@@ -8,7 +8,7 @@
   },
   "engines": {
     "node": "18",
-    "npm": "8"
+    "npm": "9"
   },
   "scripts": {
     "start": "node ./index.js && npm run int_migrations && npm run ext_migrations && npm run seed",

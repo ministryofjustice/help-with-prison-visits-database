@@ -3,7 +3,7 @@ exports.up = function (knex, Promise) {
     table.increments('TopUpId')
     table.integer('ClaimId').unsigned().notNullable().references('Claim.ClaimId')
     table.string('PaymentStatus', 100).notNullable()
-    table.string('CaseWorker', 100).notNullable()
+    table.string('Caseworker', 100).notNullable()
     table.string('Reason', 2000).notNullable()
     table.decimal('TopUpAmount').notNullable()
     table.dateTime('DateAdded')

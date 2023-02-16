@@ -1,6 +1,6 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('Eligibility', function (table) {
-    table.integer('EligibilityId').unsigned().primary().unique()
+    table.integer('EligibilityId').unsigned().primary().unique({ useConstraint: true })
     table.integer('ReferenceDisabled').unsigned()
     table.string('Reference', 10).notNullable().index()
     table.string('UntrustedReason')

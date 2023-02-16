@@ -1,7 +1,7 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('EligibleChild', function (table) {
-    table.integer('EligibleChildId').unsigned().primary()
-    table.integer('EligibilityId').unsigned().notNullable().references('Eligibility.EligibilityId')
+    table.integer('EligibleChildId').unsigned().primary({ constraintName: 'eligible_child_pkey' })
+    table.integer('EligibilityId').unsigned().notNullable()
     table.dateTime('DateOfBirth').notNullable()
     table.string('Reference', 10).notNullable().index()
     table.string('FirstName', 100).notNullable()

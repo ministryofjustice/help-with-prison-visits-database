@@ -1,7 +1,7 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('Benefit', function (table) {
-    table.integer('BenefitId').unsigned().primary()
-    table.integer('EligibilityId').unsigned().notNullable().index()
+    table.integer('BenefitId').unsigned().primary({constraintName:'benefit_pkey'})
+    table.integer('EligibilityId').unsigned().notNullable().index('benefit_eligibility_index')
     table.string('Reference', 10).notNullable().index()
     table.string('FirstName', 100).notNullable()
     table.string('LastName', 100).notNullable()

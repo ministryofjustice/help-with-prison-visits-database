@@ -1,6 +1,6 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('Claim', function (table) {
-    table.integer('ClaimId').unsigned().primary().unique()
+    table.integer('ClaimId').unsigned().primary().unique({ useConstraint: true })
     table.integer('EligibilityId').unsigned().notNullable() // NO FOREIGN KEY FOR REPEAT CLAIMS WHEN NO ELIGIBILITY IN EXTSCHEMA
     table.integer('RejectionReasonId').unsigned()
     table.boolean('IsAdvanceClaim')

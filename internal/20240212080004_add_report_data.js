@@ -4,6 +4,7 @@ exports.up = function (knex, Promise) {
     table.string('Reference').notNullable()
     table.integer('ClaimId').notNullable()
     table.decimal('PaymentAmount')
+    table.integer('Caseworker')
     table.string('Band5Username')
     table.string('Band5Validity')
     table.string('Band5Description')

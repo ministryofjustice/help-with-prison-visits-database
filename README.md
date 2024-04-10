@@ -2,11 +2,11 @@
 
 Contains the database scripts necessary to setup the MS SQL Database instance used for APVS (Assisted Prison Visit Scheme).
 
-These are the helper scripts to setup and clear down the database. The main migration scripts necessary to setup the database schema live in the [help-with-prison-visits-external](https://github.com/ministryofjustice/help-with-prison-visits-external.git) and [help-with-prison-visits-internal](https://github.com/ministryofjustice/help-with-prison-visits-internal.git).
+These are the helper scripts to setup and clear down the database. The main migration scripts necessary to setup the database schema live in the [help-with-prison-visits-external](https://github.com/ministryofjustice/help-with-prison-visits-external) and [help-with-prison-visits-internal](https://github.com/ministryofjustice/help-with-prison-visits-internal) repositories.
 
 ## Requires
 
-* [NodeJS 16](https://nodejs.org)
+* [NodeJS 20](https://nodejs.org)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ## Environment
@@ -33,7 +33,7 @@ HWPV_INT_MIGRATION_USERNAME='IntMigrationsUser'
 HWPV_INT_MIGRATION_PASSWORD='Passw0rd!'
 ```
 
-## Install the node modules (tested on node 16/npm 7)
+## Install the node modules (tested on node 20/npm 10)
 
 ```
 npm install

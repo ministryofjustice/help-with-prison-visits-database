@@ -20,6 +20,6 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "knex": "^3.1.0",
-    "mssql": "^10.0.2"
+    "mssql": "^11.0.1"
   }
 }

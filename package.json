@@ -7,7 +7,7 @@
     "url": "https://github.com/ministryofjustice/help-with-prison-visits-database.git"
   },
   "engines": {
-    "node": "20",
+    "node": "22",
     "npm": "10"
   },
   "scripts": {
@@ -18,8 +18,8 @@
     "seed": "KNEX_CONFIG=intMigrations knex seed:run --env intMigrations"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.5.0",
     "knex": "^3.1.0",
-    "mssql": "^10.0.2"
+    "mssql": "^11.0.1"
   }
 }

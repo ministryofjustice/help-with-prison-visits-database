@@ -6,7 +6,7 @@ These are the helper scripts to setup and clear down the database. The main migr
 
 ## Requires
 
-* [NodeJS 20](https://nodejs.org)
+* [NodeJS 22](https://nodejs.org)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ## Environment
@@ -33,7 +33,7 @@ HWPV_INT_MIGRATION_USERNAME='IntMigrationsUser'
 HWPV_INT_MIGRATION_PASSWORD='Passw0rd!'
 ```
 
-## Install the node modules (tested on node 20/npm 10)
+## Install the node modules (tested on node 22/npm 10)
 
 ```
 npm install

@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({ quiet: true })
 const config = require('./knexfile').development
 const knex = require('knex')(config)
 const { dropLoginsOnMaster, createLoginsOnMaster } = require('./setup/create-logins-on-master')

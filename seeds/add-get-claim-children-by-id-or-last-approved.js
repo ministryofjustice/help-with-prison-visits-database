@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({ quiet: true })
 
 /**
  * Adds a table function to the IntSchema that retrieves the last approved Claim Child data for the given reference

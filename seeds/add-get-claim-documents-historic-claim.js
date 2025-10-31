@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({ quiet: true })
 
 /**
  * Adds a table function to the IntSchema that retrieves all claim documents by reference, eligibilityId and claimId and grants the

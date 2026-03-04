@@ -15,11 +15,15 @@
     "startNoUsers": "node ./indexNoUsers.js && npm run int_migrations && npm run ext_migrations && npm run seed",
     "int_migrations": "KNEX_CONFIG=intMigrations knex migrate:latest --env intMigrations",
     "ext_migrations": "KNEX_CONFIG=extMigrations knex migrate:latest --env extMigrations",
-    "seed": "KNEX_CONFIG=intMigrations knex seed:run --env intMigrations"
+    "seed": "KNEX_CONFIG=intMigrations knex seed:run --env intMigrations",
+    "setup": "npm ci && hmpps-npm-script-run-allowlist"
   },
   "dependencies": {
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.3.1",
     "knex": "^3.1.0",
-    "mssql": "^12.0.0"
+    "mssql": "^12.2.0"
+  },
+  "devDependencies": {
+    "@ministryofjustice/hmpps-npm-script-allowlist": "0.0.3"
   }
 }

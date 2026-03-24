@@ -1,3 +1,5 @@
+[![Ministry of Justice Repository Compliance Badge](https://github-community.service.justice.gov.uk/repository-standards/api/help-with-prison-visits-database/badge)](https://github-community.service.justice.gov.uk/repository-standards/help-with-prison-visits-database)
+
 # Help with Prison Visits Database migrations
 
 Contains the database scripts necessary to setup the MS SQL Database instance used for APVS (Assisted Prison Visit Scheme).

@@ -1,5 +1,7 @@
 # Help with Prison Visits Database migrations
 
+[![Ministry of Justice Repository Compliance Badge](https://github-community.service.justice.gov.uk/repository-standards/api/help-with-prison-visits-database/badge?style=flat)](https://github-community.service.justice.gov.uk/repository-standards/help-with-prison-visits-database)
+
 Contains the database scripts necessary to setup the MS SQL Database instance used for APVS (Assisted Prison Visit Scheme).
 
 These are the helper scripts to setup and clear down the database. The main migration scripts necessary to setup the database schema live in the [help-with-prison-visits-external](https://github.com/ministryofjustice/help-with-prison-visits-external) and [help-with-prison-visits-internal](https://github.com/ministryofjustice/help-with-prison-visits-internal) repositories.
